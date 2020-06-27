@@ -1,8 +1,4 @@
-<html>
-<head>
-I am BAD MAN
-</head>
-<body>
-Do get job by April
-</body>
-</html>
+<?php 
+# Here echo command is used to print
+echo "Hello, world!"; 
+?>
