@@ -2,21 +2,28 @@ node{
  
    stage('SCM Checkout'){ 
 	git credentialsId: 'git-creden-ng', url: 'https://github.com/karthik0248/kartk.git'
+	
    }
    
    stage('Build Docker Image'){
      sh 'docker build -t kartkNiginx/my:6.0.0 .'
-   }
+     
+}
+   
    stage('Push Docker Iamge'){
      sh 'docker login -u 0248 -p Dz+P/F_F985.c8q'
-     sh 'docker push kartkNiginx/my:6.0.0
+     sh 'docker push kartkNiginx/my:6.0.0'
+     
    }
  
    stage('Run container'){
      def dockerrun = 'docker run -p 80:80 -d kartkNiginx/my:6.0.0'
      sshagent sshagent(['deployserver']) {
       sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.44.48' ${dockerrun}"
+      
     }
+    
   }
+  
 }
    
