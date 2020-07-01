@@ -1,4 +1,6 @@
-stage('SCM Checkout'){ 
+node{
+
+   stage('SCM Checkout'){ 
 	git credentialsId: 'git-creden-ng', url: 'https://github.com/karthik0248/kartk.git'
 
    }
